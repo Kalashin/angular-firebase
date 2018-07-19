@@ -2,6 +2,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireAuth } from 'angularfire2/auth';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LayoutModule } from '@angular/cdk/layout';
@@ -48,6 +52,7 @@ import {
 import { Form1Component } from './form1/form1.component';
 import { Form2Component } from './form2/form2.component';
 import { PagenavComponent } from './pagenav/pagenav.component';
+import { environment } from '../environments/environment';
 
 const appRoutes: Routes = [
   { path: 'form1path', component: Form1Component },
@@ -110,7 +115,9 @@ const appRoutes: Routes = [
     ReactiveFormsModule,
     RouterModule.forRoot(
       appRoutes
-    )
+    ),
+    AngularFireModule.initializeApp(environment.firebase, 'angular-firebase'),
+    AngularFireDatabaseModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
