@@ -44,10 +44,12 @@ import {
   MatTooltipModule,
   MatTreeModule,
 } from '@angular/material';
+import { Form1Component } from './form1/form1.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    Form1Component
   ],
   imports: [
     BrowserModule,
