@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -46,6 +47,12 @@ import {
 } from '@angular/material';
 import { Form1Component } from './form1/form1.component';
 import { Form2Component } from './form2/form2.component';
+
+const appRoutes: Routes = [
+  { path: 'form1path', component: Form1Component },
+  { path: 'form2path', component: Form2Component },
+
+];
 
 @NgModule({
   declarations: [
@@ -99,6 +106,9 @@ import { Form2Component } from './form2/form2.component';
     FormsModule,
     MatNativeDateModule,
     ReactiveFormsModule,
+    RouterModule.forRoot(
+      appRoutes
+    )
   ],
   providers: [],
   bootstrap: [AppComponent]
