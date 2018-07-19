@@ -47,6 +47,7 @@ import {
 } from '@angular/material';
 import { Form1Component } from './form1/form1.component';
 import { Form2Component } from './form2/form2.component';
+import { PagenavComponent } from './pagenav/pagenav.component';
 
 const appRoutes: Routes = [
   { path: 'form1path', component: Form1Component },
@@ -58,7 +59,8 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     Form1Component,
-    Form2Component
+    Form2Component,
+    PagenavComponent
   ],
   imports: [
     BrowserModule,
