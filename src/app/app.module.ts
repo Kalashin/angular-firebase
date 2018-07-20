@@ -53,6 +53,8 @@ import { Form1Component } from './form1/form1.component';
 import { Form2Component } from './form2/form2.component';
 import { PagenavComponent } from './pagenav/pagenav.component';
 import { environment } from '../environments/environment';
+import { FormDetailComponent } from './form-detail/form-detail.component';
+import { FormListComponent } from './form-list/form-list.component';
 
 const appRoutes: Routes = [
   { path: 'form1path', component: Form1Component },
@@ -65,7 +67,9 @@ const appRoutes: Routes = [
     AppComponent,
     Form1Component,
     Form2Component,
-    PagenavComponent
+    PagenavComponent,
+    FormDetailComponent,
+    FormListComponent
   ],
   imports: [
     BrowserModule,
