@@ -1,0 +1,23 @@
+<mat-card>
+  
+  <h4>Login</h4>
+    <div class="card-body">
+
+  <div *ngIf="afAuth.user | async as user; else showLogin">
+    <img src="{{ user.photoURL }}" style="height:10%; width: 10%">
+    <h1>olá {{ user.displayName }}!</h1>
+    <button mat-raised-button color="warn" (click)="logout()">Logout</button>
+  </div>
+<div>
+  <ng-template #showLogin class="">
+    <p>Faça o login</p>
+    <p></p>
+    <button mat-raised-button color="warn" (click)="login()">Login com Google</button>
+  </ng-template>
+</div>
+
+
+ </div>
+  
+</mat-card>
+

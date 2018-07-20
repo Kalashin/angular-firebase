@@ -2,11 +2,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
+import { environment } from '../environments/environment';
 import { AngularFireModule } from 'angularfire2';
-import { AngularFireAuth } from 'angularfire2/auth';
+
+import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 
-import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LayoutModule } from '@angular/cdk/layout';
 import { CdkTableModule } from '@angular/cdk/table';
@@ -49,27 +50,26 @@ import {
   MatTooltipModule,
   MatTreeModule,
 } from '@angular/material';
-import { Form1Component } from './form1/form1.component';
-import { Form2Component } from './form2/form2.component';
-import { PagenavComponent } from './pagenav/pagenav.component';
-import { environment } from '../environments/environment';
-import { FormDetailComponent } from './form-detail/form-detail.component';
-import { FormListComponent } from './form-list/form-list.component';
+
+import { AppComponent } from './app.component';
+import { FormComponent } from './components/forms/form/form.component';
+import { FormListComponent } from './components/forms/form-list/form-list.component';
+import { AuthComponent } from './auth/auth.component';
 
 const appRoutes: Routes = [
-  { path: 'form1path', component: Form1Component },
-  { path: 'form2path', component: Form2Component },
+  { path: '', component: AuthComponent },
+  { path: 'form', component: FormComponent },
+  { path: 'auth', component: AuthComponent},
+  { path: 'form-list', component: FormListComponent}
 
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
-    Form1Component,
-    Form2Component,
-    PagenavComponent,
-    FormDetailComponent,
-    FormListComponent
+    FormComponent,
+    FormListComponent,
+    AuthComponent
   ],
   imports: [
     BrowserModule,
@@ -120,8 +120,9 @@ const appRoutes: Routes = [
     RouterModule.forRoot(
       appRoutes
     ),
-    AngularFireModule.initializeApp(environment.firebase, 'angular-firebase'),
-    AngularFireDatabaseModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAuthModule,
+    AngularFireDatabaseModule
   ],
   providers: [],
   bootstrap: [AppComponent]

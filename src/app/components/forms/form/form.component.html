@@ -1,0 +1,100 @@
+<div class="card mt-5">
+  <div class="card-body">
+      <h6 class="text-center">
+          titulo
+        </h6>
+      <form #formForm="ngForm" (ngSubmit)="onSubmit(formForm)">
+          <!-- ID Para Update -->
+          <input type="hidden" name="$key" #$key="ngModel" [(ngModel)]="formService.selectedForm.$key">
+
+          <mat-form-field class="form-group d-flex flex-column">
+            <input matInput placeholder="Nome Completo"
+              type="text"
+              name="nome"
+              #name="ngModel"
+              [(ngModel)]="formService.selectedForm.nome"
+              placeholder="Digite seu nome completo"
+              >
+          </mat-form-field>
+
+          <mat-form-field class="form-group d-flex flex-column">
+            <input matInput placeholder="descrição"
+              type="text"
+              name="desc"
+              #desc="ngModel"
+              [(ngModel)]="formService.selectedForm.desc"
+              placeholder="Digite sobre a da denúncia"
+              >
+          </mat-form-field>
+
+          <mat-form-field class="form-group d-flex flex-column">
+            <input matInput placeholder="Endereço"
+              type="text"
+              name="endereco"
+              #endereco="ngModel"
+              [(ngModel)]="formService.selectedForm.endereco"
+              placeholder="Digite o endereço"
+              >
+          </mat-form-field>
+
+          <mat-form-field class="form-group d-flex flex-column">
+            <input matInput placeholder="Nº"
+              type="number"
+              name="numero"
+              #numero="ngModel"
+              [(ngModel)]="formService.selectedForm.numero"
+              placeholder="Digite o número da sua casa"
+              >
+          </mat-form-field>
+
+          <mat-form-field class="form-group d-flex flex-column">
+            <input matInput placeholder="Complemento"
+              type="text"
+              name="complemento"
+              #complemento="ngModel"
+              [(ngModel)]="formService.selectedForm.complemento"
+              placeholder="ponto de referência"
+              >
+          </mat-form-field>
+          
+          <mat-form-field class="form-group d-flex flex-column">
+            <input matInput placeholder="Bairro"
+              type="text"
+              name="bairro"
+              #bairro="ngModel"
+              [(ngModel)]="formService.selectedForm.bairro"
+              placeholder="nome de seu bairro"
+              >
+          </mat-form-field>
+          <mat-form-field class="form-group d-flex flex-column">
+            <input matInput placeholder="Cidade"
+              type="text"
+              name="cidade"
+              #cidade="ngModel"
+              [(ngModel)]="formService.selectedForm.cidade"
+              placeholder="nome de sua Cidade"
+              >
+          </mat-form-field>
+          <mat-form-field class="form-group d-flex flex-column">
+            <input matInput placeholder="Estado"
+              type="text"
+              name="estado"
+              #estado="ngModel"
+              [(ngModel)]="formService.selectedForm.estado"
+              placeholder="nome de seu Estado "
+              >
+          </mat-form-field>
+
+          
+          <div class="form-group">
+            
+            <button class="btn btn-secondary" type="reset" (click)="resetForm(formForm)">
+                <i class="fas fa-sync-alt"></i> Limpar Campos
+            </button>
+            <button mat-fab type="submit" color="accent" class="float-right">
+                <mat-icon>save</mat-icon>
+              </button>
+          </div>
+        </form>
+  </div>
+</div>
