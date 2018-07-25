@@ -59,7 +59,7 @@ import { AuthComponent } from './auth/auth.component';
 const appRoutes: Routes = [
   { path: '', component: AuthComponent },
   { path: 'form', component: FormComponent },
-  { path: 'auth', component: AuthComponent},
+  { path: 'login', component: AuthComponent},
   { path: 'form-list', component: FormListComponent}
 
 ];

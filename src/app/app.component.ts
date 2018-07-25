@@ -1,7 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { MatSidenav } from '@angular/material';
+
 
 @Component({
   selector: 'app-root',
@@ -18,4 +20,9 @@ export class AppComponent {
 
   constructor(private breakpointObserver: BreakpointObserver) {}
 
+  @ViewChild('sidenav') sidenav: MatSidenav;
+
+  close() {
+    this.sidenav.close();
+  }
 }

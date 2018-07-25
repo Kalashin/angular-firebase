@@ -2,36 +2,35 @@
 <div class="card">
    <div class="card-body">
       <h6 class="text-center">
-         Formulário
+         Lista de denúncias
       </h6>
-      <app-form></app-form>
       <mat-accordion class="example-headers-align">
          <mat-expansion-panel  *ngFor="let form of formList">
             <mat-expansion-panel-header>
                <mat-panel-title>
-                  {{form.nome}}
+                  Nome: {{form.nome}}
                </mat-panel-title>
             </mat-expansion-panel-header>
             <mat-panel-title>
-               {{form.desc}}
+               Descrição: {{form.desc}}
             </mat-panel-title>
             <mat-panel-title>
-               {{form.endereco}}
+               Endereço: {{form.endereco}}
             </mat-panel-title>
             <mat-panel-title>
-               {{form.numero}}
+               Número: {{form.numero}}
             </mat-panel-title>
             <mat-panel-title>
-               {{form.complemento}}
+               Complemento: {{form.complemento}}
             </mat-panel-title>
             <mat-panel-title>
-               {{form.bairro}}
+               Bairro: {{form.bairro}}
             </mat-panel-title>
             <mat-panel-title>
-               {{form.cidade}}
+               Cidade: {{form.cidade}}
             </mat-panel-title>
             <mat-panel-title>
-               {{form.estado}}
+               Estado: {{form.estado}}
             </mat-panel-title>
             <div id="container-fluid">
                <div class="row">
@@ -45,7 +44,7 @@
                      </button>
                   </div>
                   <div class="col-2">
-                     <button mat-button color="primary" (click)="onEdit(form)">
+                     <button mat-button color="primary" (click)="onEdit(form); openDialog()">
                         <mat-icon>edit</mat-icon>
                         editar
                      </button>

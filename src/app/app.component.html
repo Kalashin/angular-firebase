@@ -1,21 +1,75 @@
-<mat-toolbar color="primary">
+<mat-sidenav-container class="example-container" (backdropClick)="close('backdrop')">
   
-  <span>angular-firebase</span>
-</mat-toolbar>
-<!-- Add Content Here -->
+  <mat-sidenav #sidenav (keydown.escape)="close('escape')" disableClose>
+   
+    <mat-list role="list">
+      <mat-list-item role="listitem">
+        
+      <button mat-button color="primary" (click)="close('toggle button')">
+          <mat-icon>close</mat-icon> Fechar Menu
+      </button>
 
-<div class="container">
-  <div class="row">
+      <mat-divider></mat-divider>
+      </mat-list-item>
+      
+      <mat-list-item role="listitem">
+          
+          <button mat-raised-button color="primary" (click)="close('toggle button')" [routerLink]="['']">
+            Página inicial
+          </button>
+  
+        </mat-list-item>
+
+      <mat-list-item role="listitem">
+          
+        <button mat-raised-button color="primary" (click)="close('toggle button')" [routerLink]="['/login']">
+          Login
+        </button>
+
+      </mat-list-item>
+      
+      <mat-list-item role="listitem">
+        
+        <button mat-raised-button color="primary" (click)="close('toggle button')" [routerLink]="['/form']" >
+          Formulário
+        </button>
+
+      </mat-list-item>
+
+      <mat-list-item role="listitem">
+        
+          <button mat-raised-button color="primary" (click)="close('toggle button')" [routerLink]="['/form-list']">
+            Lista de Formulário
+          </button>
+  
+        </mat-list-item>
+    </mat-list>
     
-    <div class="col-sm-1">
-    </div>
+  </mat-sidenav>
 
-    <div class="col-sm-10">
-      <router-outlet></router-outlet>
-    </div>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button mat-button color="basic" (click)="sidenav.open()">
+        <mat-icon>menu</mat-icon> Menu
+      </button>
+    
+      <span>angular-firebase</span>
+    </mat-toolbar>
 
-    <div class="col-sm-1">
-    </div>
+    <div class="container" min-height="100%">
+      <div class="row">
+        
+        <div class="col-sm-1">
+        </div>
 
-  </div>
-</div>
+        <div class="col-sm-10">
+        <router-outlet></router-outlet>
+        </div>
+
+        <div class="col-sm-1">
+        </div>
+
+      </div>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

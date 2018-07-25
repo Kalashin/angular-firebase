@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 
 import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 
 import { Form } from '../model/form';
+
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +14,14 @@ export class FormService {
   formList: AngularFireList<any>;
   selectedForm: Form = new Form();
 
+  private messageSource = new BehaviorSubject('default message');
+  currentMessage = this.messageSource.asObservable();
+
   constructor(private firebase: AngularFireDatabase) { }
+
+    changeMessage(message: string) {
+      this.messageSource.next(message);
+    }
 
     getForms() {
       return this.formList = this.firebase.list('forms');
@@ -47,6 +56,5 @@ export class FormService {
     deleteForm($key: string) {
       this.formList.remove($key);
     }
-
 
 }

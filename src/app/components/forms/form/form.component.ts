@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject} from '@angular/core';
 import { NgForm } from '@angular/forms';
+// import { MAT_DIALOG_DATA } from '@angular/material';
 
 import { FormService } from '../../../database/services/form.service';
 import { Form } from '../../../database/model/form';
@@ -12,7 +13,8 @@ import { Form } from '../../../database/model/form';
 export class FormComponent implements OnInit {
 
   constructor(
-    private formService: FormService,
+    private formService: FormService
+    // @Inject(MAT_DIALOG_DATA) private FormService : any
   ) { }
 
   ngOnInit() {
