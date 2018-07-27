@@ -9,6 +9,7 @@ import { element } from 'protractor';
 import { ElementSchemaRegistry } from '@angular/compiler';
 import { AngularFireList } from 'angularfire2/database';
 import { FormComponent } from '../form/form.component';
+import { Message } from '@angular/compiler/src/i18n/i18n_ast';
 
 @Component({
   selector: 'app-form-list',
@@ -19,17 +20,29 @@ export class FormListComponent implements OnInit {
   formList: Form[];
   selectedFormList: AngularFireList<any>;
   dialogRef: any;
+  public message: string;
+  editForm: Form;
+  // iFormService: FormService;
+  isDialogOpen: boolean;
 
   constructor(
     private formService: FormService,
     public dialog: MatDialog) {
  }
   openDialog(form: Form) {
+    this.isDialogOpen = true;
     this.formService.selectedForm = Object.assign({}, form);
+    this.editForm = this.formService.selectedForm;
+    // this.iFormService.selectedForm = this.editForm;
+    // this.message = 'work';
+    this.message = this.formService.selectedForm.$key;
     const dialogRef = this.dialog.open(FormComponent, {
       height: '80%',
       width: '80%',
-      data: this.formService.selectedForm
+      // data: this.message
+      // data: this.formService.selectedForm
+      data: this.editForm
+      // data: this.iFormService
     }, );
 
 
@@ -40,9 +53,14 @@ export class FormListComponent implements OnInit {
 
   onNoClick(): void {
     close();
+    this.isDialogOpen = false;
   }
 
   ngOnInit() {
+   this.loadAllForm();
+  }
+
+  loadAllForm() {
     return this.formService.getForms().snapshotChanges().subscribe(item => {
       this.formList = [];
 

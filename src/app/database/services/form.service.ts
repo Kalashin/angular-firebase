@@ -27,6 +27,10 @@ export class FormService {
       return this.formList = this.firebase.list('forms');
     }
 
+    getForm(message: string) {
+      return this.formList = this.firebase.list('forms/' + message);
+    }
+
     insertForm(form: Form) {
       this.formList.push({
         nome: form.nome,

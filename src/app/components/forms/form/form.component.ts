@@ -1,6 +1,6 @@
 import { Component, OnInit, Inject} from '@angular/core';
 import { NgForm } from '@angular/forms';
-// import { MAT_DIALOG_DATA } from '@angular/material';
+import {MAT_DIALOG_DATA, MatDialogRef, MatDialog} from '@angular/material';
 
 import { FormService } from '../../../database/services/form.service';
 import { Form } from '../../../database/model/form';
@@ -13,13 +13,18 @@ import { Form } from '../../../database/model/form';
 export class FormComponent implements OnInit {
 
   constructor(
-    private formService: FormService
-    // @Inject(MAT_DIALOG_DATA) private FormService : any
+    public formService: FormService,
+    // @Inject(MAT_DIALOG_DATA) public message: string
+    @Inject(MAT_DIALOG_DATA) public editForm: Form
+    // @Inject(MAT_DIALOG_DATA) public iFormService: FormService
   ) { }
 
   ngOnInit() {
+    this.formService.selectedForm = this.editForm;
     this.formService.getForms();
-    this.resetForm();
+    // this.formService.getForm(this.message);
+    // this.formService.selectedForm = this.editForm;
+    // this.resetForm();
   }
 
   onSubmit(formForm: NgForm) {
