@@ -55,13 +55,14 @@ import { AppComponent } from './app.component';
 import { FormComponent } from './components/forms/form/form.component';
 import { FormListComponent } from './components/forms/form-list/form-list.component';
 import { AuthComponent } from './auth/auth.component';
+import { FormUpdateComponent } from './components/forms/form-update/form-update.component';
 
 const appRoutes: Routes = [
   { path: '', component: AuthComponent },
   { path: 'form', component: FormComponent },
   { path: 'login', component: AuthComponent},
-  { path: 'form-list', component: FormListComponent}
-
+  { path: 'form-list', component: FormListComponent},
+  { path: 'forfm-update', component: FormUpdateComponent}
 ];
 
 @NgModule({
@@ -69,7 +70,8 @@ const appRoutes: Routes = [
     AppComponent,
     FormComponent,
     FormListComponent,
-    AuthComponent
+    AuthComponent,
+    FormUpdateComponent
   ],
   imports: [
     BrowserModule,

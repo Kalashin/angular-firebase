@@ -6,25 +6,25 @@ import { FormService } from '../../../database/services/form.service';
 import { Form } from '../../../database/model/form';
 
 @Component({
-  selector: 'app-form',
-  templateUrl: './form.component.html',
-  styleUrls: ['./form.component.css']
+  selector: 'app-form-update',
+  templateUrl: './form-update.component.html',
+  styleUrls: ['./form-update.component.css']
 })
-export class FormComponent implements OnInit {
+export class FormUpdateComponent implements OnInit {
 
   constructor(
     public formService: FormService,
     // @Inject(MAT_DIALOG_DATA) public message: string
-    // @Inject(MAT_DIALOG_DATA) public editForm: Form
+    @Inject(MAT_DIALOG_DATA) public editForm: Form
     // @Inject(MAT_DIALOG_DATA) public iFormService: FormService
   ) { }
 
   ngOnInit() {
-    //this.formService.selectedForm = this.editForm;
+    this.formService.selectedForm = this.editForm;
     this.formService.getForms();
     // this.formService.getForm(this.message);
     // this.formService.selectedForm = this.editForm;
-    this.resetForm();
+    // this.resetForm();
   }
 
   onSubmit(formForm: NgForm) {
@@ -43,5 +43,6 @@ export class FormComponent implements OnInit {
     }
       this.formService.selectedForm = new Form();
   }
+
 
 }

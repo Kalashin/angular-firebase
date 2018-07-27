@@ -10,6 +10,7 @@ import { ElementSchemaRegistry } from '@angular/compiler';
 import { AngularFireList } from 'angularfire2/database';
 import { FormComponent } from '../form/form.component';
 import { Message } from '@angular/compiler/src/i18n/i18n_ast';
+import { FormUpdateComponent } from '../form-update/form-update.component';
 
 @Component({
   selector: 'app-form-list',
@@ -36,7 +37,7 @@ export class FormListComponent implements OnInit {
     // this.iFormService.selectedForm = this.editForm;
     // this.message = 'work';
     this.message = this.formService.selectedForm.$key;
-    const dialogRef = this.dialog.open(FormComponent, {
+    const dialogRef = this.dialog.open(FormUpdateComponent, {
       height: '80%',
       width: '80%',
       // data: this.message
